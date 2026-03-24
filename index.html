@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Thomas Fauré — Coordinateur Technique Aéronautique</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0f1e;
+    --navy-mid: #111827;
+    --navy-light: #1e2d45;
+    --blue: #1d6fa4;
+    --blue-bright: #2d9cdb;
+    --accent: #e8a020;
+    --white: #f0f4f8;
+    --grey: #8899aa;
+    --grey-light: #b0c4d8;
+  }
+
+- { margin: 0; padding: 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
+  html { scroll-behavior: smooth; background-color: #0a0f1e; }
+  body {
+  background-color: #0a0f1e;
+  color: #f0f4f8;
+  font-family: ‘DM Sans’, sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  }
+
+/* NAV */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: -webkit-flex; display: flex;
+-webkit-justify-content: space-between; justify-content: space-between;
+-webkit-align-items: center; align-items: center;
+padding: 1.2rem 4rem;
+background-color: rgba(10,15,30,0.97);
+border-bottom: 1px solid rgba(45,156,219,0.2);
+}
+.nav-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.4rem; letter-spacing: 0.12em; color: #e8a020; }
+.nav-links { display: -webkit-flex; display: flex; gap: 2rem; }
+.nav-links a { color: #b0c4d8; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* HERO */
+.hero {
+min-height: 100vh;
+display: -webkit-flex; display: flex;
+-webkit-flex-wrap: wrap; flex-wrap: wrap;
+-webkit-align-items: center; align-items: center;
+padding: 8rem 4rem 4rem;
+background-color: #0a0f1e;
+gap: 3rem;
+}
+.hero-left { -webkit-flex: 1 1 380px; flex: 1 1 380px; }
+.hero-right { -webkit-flex: 0 0 320px; flex: 0 0 320px; }
+
+.hero-tag {
+display: inline-block;
+background-color: rgba(232,160,32,0.12);
+border: 1px solid rgba(232,160,32,0.35);
+color: #e8a020;
+font-size: 0.75rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+padding: 0.4rem 1rem;
+border-radius: 2px;
+margin-bottom: 1.5rem;
+}
+.hero-name { font-family: ‘Bebas Neue’, sans-serif; font-size: 5.5rem; line-height: 0.92; color: #f0f4f8; }
+.hero-name span { color: #2d9cdb; }
+.hero-title { margin-top: 1.2rem; font-size: 0.97rem; color: #b0c4d8; line-height: 1.7; }
+.hero-title strong { color: #f0f4f8; font-weight: 500; }
+
+.hero-contacts { margin-top: 2rem; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; gap: 0.5rem; }
+.contact-item { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; gap: 0.8rem; font-family: ‘DM Mono’, monospace; font-size: 0.8rem; color: #8899aa; }
+.contact-item .label { color: #2d9cdb; min-width: 58px; }
+.contact-item a { color: #8899aa; text-decoration: none; }
+
+.hero-cta { margin-top: 2.5rem; display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; gap: 0.8rem; }
+
+.btn-primary {
+display: inline-block; background-color: #e8a020; color: #0a0f1e;
+font-family: ‘DM Sans’, sans-serif; font-weight: 500; font-size: 0.83rem;
+letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 1.6rem;
+border: none; border-radius: 3px; cursor: pointer; text-decoration: none;
+}
+.btn-outline {
+display: inline-block; background-color: transparent; color: #b0c4d8;
+font-family: ‘DM Sans’, sans-serif; font-weight: 400; font-size: 0.83rem;
+letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 1.6rem;
+border: 1px solid rgba(45,156,219,0.35); border-radius: 3px; cursor: pointer; text-decoration: none;
+}
+.btn-download {
+display: inline-block; background-color: transparent; color: #e8a020;
+font-family: ‘DM Sans’, sans-serif; font-weight: 500; font-size: 0.83rem;
+letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 1.6rem;
+border: 1px solid rgba(232,160,32,0.5); border-radius: 3px; cursor: pointer; text-decoration: none;
+}
+
+/* STATS PANEL */
+.stats-panel { background-color: #111827; border: 1px solid rgba(45,156,219,0.25); padding: 2rem; border-radius: 4px; }
+.stats-panel-title { font-family: ‘DM Mono’, monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #2d9cdb; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(45,156,219,0.15); }
+.stat-row { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; padding: 0.65rem 0; border-bottom: 1px solid rgba(45,156,219,0.07); }
+.stat-label { font-size: 0.78rem; color: #8899aa; }
+.stat-value { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.35rem; color: #f0f4f8; letter-spacing: 0.05em; }
+.stat-value.accent { color: #e8a020; }
+.stat-value.blue { color: #2d9cdb; }
+.avions-badges { margin-top: 1.2rem; display: -webkit-flex; display: flex; gap: 0.5rem; -webkit-flex-wrap: wrap; flex-wrap: wrap; }
+.badge { font-family: ‘DM Mono’, monospace; font-size: 0.7rem; padding: 0.3rem 0.65rem; border: 1px solid #2d9cdb; color: #2d9cdb; background-color: rgba(45,156,219,0.1); border-radius: 2px; }
+.badge.gold { border-color: #e8a020; color: #e8a020; background-color: rgba(232,160,32,0.1); }
+
+/* SECTIONS */
+section { padding: 5rem 4rem; background-color: #0a0f1e; }
+section.alt { background-color: #111827; }
+.section-header { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; gap: 1.2rem; margin-bottom: 3rem; }
+.section-num { font-family: ‘Bebas Neue’, sans-serif; font-size: 3rem; color: rgba(45,156,219,0.15); line-height: 1; }
+.section-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 2rem; letter-spacing: 0.06em; color: #f0f4f8; }
+.section-line { -webkit-flex: 1; flex: 1; height: 1px; background-color: rgba(29,111,164,0.4); margin-left: 0.5rem; }
+
+/* TIMELINE */
+.timeline { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; }
+.timeline-item { display: -webkit-flex; display: flex; gap: 1.5rem; padding-bottom: 2.5rem; }
+.timeline-date { min-width: 175px; text-align: right; padding-top: 4px; }
+.timeline-company { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.1rem; letter-spacing: 0.08em; color: #e8a020; }
+.timeline-period { font-family: ‘DM Mono’, monospace; font-size: 0.68rem; color: #8899aa; margin-top: 0.2rem; }
+.timeline-loc { font-size: 0.73rem; color: #8899aa; margin-top: 0.1rem; }
+.timeline-spine { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; min-width: 16px; }
+.timeline-dot { width: 10px; height: 10px; background-color: #2d9cdb; border-radius: 50%; margin-top: 5px; -webkit-flex-shrink: 0; flex-shrink: 0; }
+.timeline-spine-line { width: 1px; -webkit-flex: 1; flex: 1; background-color: rgba(45,156,219,0.2); margin-top: 4px; }
+.timeline-item:last-child .timeline-spine-line { display: none; }
+.timeline-content { -webkit-flex: 1; flex: 1; }
+.timeline-role { font-weight: 500; font-size: 0.93rem; color: #f0f4f8; margin-bottom: 0.7rem; }
+.timeline-tasks { list-style: none; display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; gap: 0.32rem; }
+.timeline-tasks li { font-size: 0.82rem; color: #b0c4d8; padding-left: 1rem; position: relative; line-height: 1.5; }
+.timeline-tasks li::before { content: ‘›’; position: absolute; left: 0; color: #2d9cdb; }
+.task-highlight { color: #f0f4f8; font-weight: 500; }
+
+/* COMPÉTENCES */
+.skills-grid { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; gap: 1.5rem; }
+.skill-card { -webkit-flex: 1 1 320px; flex: 1 1 320px; background-color: #1e2d45; border: 1px solid rgba(45,156,219,0.2); border-left: 3px solid #2d9cdb; padding: 1.8rem; border-radius: 4px; }
+.skill-card-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.25rem; letter-spacing: 0.08em; color: #f0f4f8; margin-bottom: 1.2rem; }
+.skill-items { display: -webkit-flex; display: flex; -webkit-flex-direction: column; flex-direction: column; gap: 0.8rem; }
+.skill-item { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; gap: 0.8rem; }
+.skill-name { font-size: 0.78rem; color: #b0c4d8; min-width: 130px; }
+.skill-bar-bg { -webkit-flex: 1; flex: 1; height: 4px; background-color: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.skill-bar-fill { height: 4px; background-color: #2d9cdb; border-radius: 2px; display: block; }
+.skill-bar-fill.gold { background-color: #e8a020; }
+.skill-level { font-family: ‘DM Mono’, monospace; font-size: 0.6rem; color: #8899aa; min-width: 75px; text-align: right; }
+
+/* LOGICIELS */
+.soft-grid { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
+.soft-chip { background-color: #1e2d45; border: 1px solid rgba(45,156,219,0.2); padding: 0.75rem 1rem; text-align: center; border-radius: 3px; min-width: 110px; }
+.soft-chip-name { font-size: 0.8rem; color: #f0f4f8; font-weight: 500; }
+.soft-chip-sub { font-family: ‘DM Mono’, monospace; font-size: 0.6rem; color: #8899aa; margin-top: 0.2rem; }
+
+/* FORMATION */
+.edu-grid { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; gap: 1.5rem; }
+.edu-card { -webkit-flex: 1 1 200px; flex: 1 1 200px; background-color: #1e2d45; border: 1px solid rgba(45,156,219,0.2); padding: 1.8rem; border-radius: 4px; }
+.edu-year { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.8rem; color: rgba(45,156,219,0.25); margin-bottom: 0.6rem; }
+.edu-degree { font-weight: 500; font-size: 0.87rem; color: #f0f4f8; margin-bottom: 0.4rem; line-height: 1.4; }
+.edu-school { font-size: 0.75rem; color: #8899aa; }
+
+/* PROFIL */
+.info-grid { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+.info-card { -webkit-flex: 1 1 130px; flex: 1 1 130px; background-color: #1e2d45; border: 1px solid rgba(45,156,219,0.2); padding: 1.2rem; text-align: center; border-radius: 3px; }
+.info-card-label { font-family: ‘DM Mono’, monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: #8899aa; margin-bottom: 0.5rem; }
+.info-card-value { font-size: 0.87rem; color: #f0f4f8; font-weight: 500; }
+.info-card-value.accent { color: #e8a020; }
+.savoir-etre { display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; gap: 0.7rem; }
+.se-chip { padding: 0.5rem 1rem; border: 1px solid rgba(45,156,219,0.25); font-size: 0.8rem; color: #b0c4d8; background-color: rgba(45,156,219,0.05); border-radius: 3px; }
+
+/* CONTACT */
+.contact-wrap { max-width: 660px; margin: 0 auto; }
+.form-group { margin-bottom: 1.2rem; }
+.form-label { display: block; font-family: ‘DM Mono’, monospace; font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase; color: #8899aa; margin-bottom: 0.5rem; }
+.form-input, .form-textarea { width: 100%; background-color: #1e2d45; border: 1px solid rgba(45,156,219,0.25); color: #f0f4f8; font-family: ‘DM Sans’, sans-serif; font-size: 0.88rem; padding: 0.82rem 1rem; outline: none; border-radius: 3px; -webkit-appearance: none; }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-row { display: -webkit-flex; display: flex; gap: 1rem; -webkit-flex-wrap: wrap; flex-wrap: wrap; }
+.form-row .form-group { -webkit-flex: 1 1 180px; flex: 1 1 180px; }
+.form-submit { width: 100%; background-color: #e8a020; color: #0a0f1e; font-family: ‘DM Sans’, sans-serif; font-weight: 500; font-size: 0.87rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem; border: none; border-radius: 3px; cursor: pointer; margin-top: 0.4rem; }
+.form-note { margin-top: 0.7rem; font-size: 0.72rem; color: #8899aa; text-align: center; }
+.success-msg { display: none; text-align: center; padding: 2rem; background-color: rgba(45,156,219,0.08); border: 1px solid #2d9cdb; color: #2d9cdb; font-family: ‘DM Mono’, monospace; font-size: 0.83rem; border-radius: 3px; }
+
+/* FOOTER */
+footer { background-color: #0a0f1e; border-top: 1px solid rgba(45,156,219,0.15); padding: 1.8rem 4rem; display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: #e8a020; }
+.footer-copy { font-family: ‘DM Mono’, monospace; font-size: 0.67rem; color: #8899aa; }
+
+@media (max-width: 768px) {
+nav { padding: 1rem 1.5rem; }
+.nav-links { gap: 1rem; }
+.nav-links a { font-size: 0.7rem; }
+.hero { padding: 7rem 1.5rem 3rem; }
+.hero-name { font-size: 3.8rem; }
+section { padding: 3rem 1.5rem; }
+.timeline-date { min-width: 100px; }
+footer { padding: 1.5rem; }
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">T.FAURÉ</div>
+  <div class="nav-links">
+    <a href="#experience">Expériences</a>
+    <a href="#competences">Compétences</a>
+    <a href="#formation">Formation</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-tag">● Disponible · Toulouse</div>
+    <h1 class="hero-name">THOMAS<br><span>FAURÉ</span></h1>
+    <p class="hero-title">
+      <strong>Coordinateur Technique A330</strong><br>
+      Support technique A320 · A330 · A350<br>
+      FAL Airbus — Toulouse
+    </p>
+    <div class="hero-contacts">
+      <div class="contact-item"><span class="label">TEL</span><a href="tel:+33789687376">+33 7 89 68 73 76</a></div>
+      <div class="contact-item"><span class="label">EMAIL</span><a href="mailto:contact.tfaure@gmail.com">contact.tfaure@gmail.com</a></div>
+      <div class="contact-item"><span class="label">PERMIS</span><span>B + véhicule personnel</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Me contacter</a>
+      <a href="#experience" class="btn-outline">Voir le parcours</a>
+      <a href="cv-thomas-faure.pdf" download class="btn-download">↓ Télécharger le CV</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-panel">
+      <div class="stats-panel-title">// Profil technique</div>
+      <div class="stat-row"><span class="stat-label">Années d'expérience</span><span class="stat-value accent">6+</span></div>
+      <div class="stat-row"><span class="stat-label">Âge</span><span class="stat-value">30 ans</span></div>
+      <div class="stat-row"><span class="stat-label">Anglais</span><span class="stat-value blue">B2</span></div>
+      <div class="stat-row"><span class="stat-label">Espagnol</span><span class="stat-value">B1</span></div>
+      <div class="avions-badges">
+        <span class="badge">A320</span>
+        <span class="badge">A330</span>
+        <span class="badge">A350</span>
+        <span class="badge gold">FAL</span>
+        <span class="badge gold">OSW</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="alt">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Expériences Professionnelles</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+
+```
+<div class="timeline-item">
+  <div class="timeline-date">
+    <div class="timeline-company">Laroche</div>
+    <div class="timeline-period">Oct 2024 — Août 2025</div>
+    <div class="timeline-loc">Toulouse</div>
+  </div>
+  <div class="timeline-spine"><div class="timeline-dot"></div><div class="timeline-spine-line"></div></div>
+  <div class="timeline-content">
+    <div class="timeline-role">Coordinateur Technique OSW A330</div>
+    <ul class="timeline-tasks">
+      <li><span class="task-highlight">CT Det. Stelia / NZ-DA</span> — Gestion des priorités de production</li>
+      <li>Analyse des états de livraison prévisionnels</li>
+      <li>Organisation et suivi des points folio / réparations</li>
+      <li>Pilotage fonctionnel des fonctions supports</li>
+    </ul>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-date">
+    <div class="timeline-company">Laroche</div>
+    <div class="timeline-period">Fév 2024 — Sept 2024</div>
+    <div class="timeline-loc">Toulouse</div>
+  </div>
+  <div class="timeline-spine"><div class="timeline-dot"></div><div class="timeline-spine-line"></div></div>
+  <div class="timeline-content">
+    <div class="timeline-role">Support Technique OSW A350</div>
+    <ul class="timeline-tasks">
+      <li><span class="task-highlight">ST OSW NZ/DA A350</span> — Traitement des non-conformités</li>
+      <li>Création S03 ATA53 / Rédaction parachèvement partenaire</li>
+      <li>Gestion des aléas de production / Coordination du folio</li>
+      <li>Formations nouvel arrivants ST</li>
+    </ul>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-date">
+    <div class="timeline-company">Expleo</div>
+    <div class="timeline-period">2022 — Jan 2024</div>
+    <div class="timeline-loc">Toulouse</div>
+  </div>
+  <div class="timeline-spine"><div class="timeline-dot"></div><div class="timeline-spine-line"></div></div>
+  <div class="timeline-content">
+    <div class="timeline-role">Support Technique FAL A320</div>
+    <ul class="timeline-tasks">
+      <li><span class="task-highlight">ST P21 MD2/MD3</span> — Assistance production, traitement NC/AR/QLB</li>
+      <li>Création S03 tous types (Green / Cabine / Structure)</li>
+      <li>Suivi du folio / relance partenaires / passage avion</li>
+      <li><span class="task-highlight">ST Back-office</span> — Surveillance opérationnelle & création S03 FAL A320 M91/P21-P25/P17-WP</li>
+      <li>Formation rédaction S03 pour nouveaux arrivants ST Airbus</li>
+    </ul>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-date">
+    <div class="timeline-company">Derichebourg</div>
+    <div class="timeline-period">2021 — 2022</div>
+    <div class="timeline-loc">Toulouse</div>
+  </div>
+  <div class="timeline-spine"><div class="timeline-dot"></div><div class="timeline-spine-line"></div></div>
+  <div class="timeline-content">
+    <div class="timeline-role">Support Technique FAL A350</div>
+    <ul class="timeline-tasks">
+      <li><span class="task-highlight">ST P20 & WP</span> — Traitement des NC / AR / QLB</li>
+      <li>Création de S03 / AR / Avis O5</li>
+      <li>Gestion des aléas de production / Aide à la production / passage avion</li>
+    </ul>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-date">
+    <div class="timeline-company">AAA</div>
+    <div class="timeline-period">2019 — 2020</div>
+    <div class="timeline-loc">Toulouse</div>
+  </div>
+  <div class="timeline-spine"><div class="timeline-dot"></div><div class="timeline-spine-line"></div></div>
+  <div class="timeline-content">
+    <div class="timeline-role">Support Technique OSW A350</div>
+    <ul class="timeline-tasks">
+      <li><span class="task-highlight">ST OSW NZ/DA Méca/Elec</span> — Traitement des non-conformités</li>
+      <li>Préparation des dossiers de production (OF — Work order)</li>
+      <li>Gestion des aléas de production / Coordination du folio</li>
+      <li>Support au responsable avion / Équipe crise plancher</li>
+    </ul>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<section id="competences">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Compétences</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">Appareils Airbus</div>
+      <div class="skill-items">
+        <div class="skill-item"><span class="skill-name">A320 — Cabine</span><div class="skill-bar-bg"><div class="skill-bar-fill gold" style="width:95%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">A320 — Green</span><div class="skill-bar-bg"><div class="skill-bar-fill gold" style="width:95%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">A330 — Structure</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">A350 — Méca</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">A350 — Structure</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">A350 — Elec</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div><span class="skill-level">Intermédiaire</span></div>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Savoir-faire technique</div>
+      <div class="skill-items">
+        <div class="skill-item"><span class="skill-name">Traitement NC/AR/QLB</span><div class="skill-bar-bg"><div class="skill-bar-fill gold" style="width:95%"></div></div><span class="skill-level">Expert</span></div>
+        <div class="skill-item"><span class="skill-name">Rédaction S03</span><div class="skill-bar-bg"><div class="skill-bar-fill gold" style="width:95%"></div></div><span class="skill-level">Expert</span></div>
+        <div class="skill-item"><span class="skill-name">Coordination folio</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">Lecture de plans</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">Gestion aléas prod.</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-level">Avancé</span></div>
+        <div class="skill-item"><span class="skill-name">Formation équipes</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div><span class="skill-level">Avancé</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:2.5rem;">
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:0.08em;color:#b0c4d8;margin-bottom:0.3rem;">Logiciels & Outils</h3>
+    <div class="soft-grid">
+      <div class="soft-chip"><div class="soft-chip-name">SAP</div><div class="soft-chip-sub">PEA/PGI · PE1/PAC</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">CATIA</div><div class="soft-chip-sub">DAO / FAO</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">Skywise</div><div class="soft-chip-sub">Planning / Suivi</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">3D Juump</div><div class="soft-chip-sub">Maquette 3D</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">Pack Office</div><div class="soft-chip-sub">Word · Excel · MSP</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">Google Drive</div><div class="soft-chip-sub">Docs · Sheets</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">ACPNG</div><div class="soft-chip-sub">&nbsp;</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">TANDEM</div><div class="soft-chip-sub">&nbsp;</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">eATM</div><div class="soft-chip-sub">&nbsp;</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">NormMaster</div><div class="soft-chip-sub">&nbsp;</div></div>
+      <div class="soft-chip"><div class="soft-chip-name">Airina</div><div class="soft-chip-sub">&nbsp;</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="formation" class="alt">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Formation</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2019</div>
+      <div class="edu-degree">Formation Support Technique Aéronautique</div>
+      <div class="edu-school">AAA Training Center — Colomiers</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2014–2016</div>
+      <div class="edu-degree">BTS Industrialisation des Produits Mécaniques</div>
+      <div class="edu-school">Lycée général et technologique — Mirepoix</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2011–2014</div>
+      <div class="edu-degree">Bac Professionnel Technicien d'Usinage</div>
+      <div class="edu-school">Lycée polyvalent Pyrène — Pamiers</div>
+    </div>
+  </div>
+</section>
+
+<section id="profil">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Profil</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="info-grid">
+    <div class="info-card"><div class="info-card-label">Âge</div><div class="info-card-value accent">30 ans</div></div>
+    <div class="info-card"><div class="info-card-label">Anglais</div><div class="info-card-value">B2</div></div>
+    <div class="info-card"><div class="info-card-label">Espagnol</div><div class="info-card-value">B1</div></div>
+    <div class="info-card"><div class="info-card-label">Mobilité</div><div class="info-card-value">Permis B + véhicule</div></div>
+  </div>
+  <div class="savoir-etre">
+    <span class="se-chip">Esprit sécurité · qualité · production</span>
+    <span class="se-chip">Lecture de plans</span>
+    <span class="se-chip">Analyse technique</span>
+    <span class="se-chip">Organisation</span>
+    <span class="se-chip">Adaptabilité</span>
+    <span class="se-chip">Rapidité</span>
+    <span class="se-chip">Process & Normes aéronautiques</span>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Me Contacter</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-wrap">
+    <form id="contactForm" action="https://formspree.io/f/xbdznpnk" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="name">Nom complet</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Jean Dupont" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Adresse email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="jean@entreprise.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="company">Entreprise</label>
+        <input class="form-input" type="text" id="company" name="company" placeholder="Airbus, Expleo, Akka...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="subject">Objet</label>
+        <input class="form-input" type="text" id="subject" name="subject" placeholder="Opportunité CDI — Support technique A330" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-textarea" id="message" name="message" placeholder="Bonjour Thomas, je vous contacte concernant..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Envoyer le message →</button>
+      <p class="form-note">Réponse garantie sous 24h · contact.tfaure@gmail.com</p>
+    </form>
+    <div class="success-msg" id="successMsg">
+      ✓ Message envoyé avec succès !<br>Je vous répondrai dans les plus brefs délais.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">T.FAURÉ</div>
+  <div class="footer-copy">COORDINATEUR TECHNIQUE · TOULOUSE · 2025</div>
+</footer>
+
+<script>
+  var form = document.getElementById('contactForm');
+  var successMsg = document.getElementById('successMsg');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      }
+    }).catch(function() {
+      alert("Erreur lors de l'envoi. Veuillez réessayer.");
+    });
+  });
+</script>
+
+</body>
+</html>
